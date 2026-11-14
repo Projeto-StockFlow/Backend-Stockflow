@@ -1,0 +1,1 @@
+# Arquivo dos endpoints
