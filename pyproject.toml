@@ -1,0 +1,7 @@
+[project]
+name = "backend-stockflow"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy>=2.1.9",
+]
