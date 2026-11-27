@@ -2,8 +2,9 @@
 import sqlite3
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, CheckConstraint, text, DateTime, func
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
+from core.config import settings
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///.stockflow.db"
+SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -51,3 +52,5 @@ class MovimentacaoDB(Base):
     data_hora = Column(DateTime, nullable=False)
     observacao = Column(String, nullable=True)
     id_produto = Column(Integer, ForeignKey("produto.id_produto"))
+
+Base.metadata.create_all(bind=engine)
